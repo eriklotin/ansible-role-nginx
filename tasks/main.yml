@@ -6,11 +6,11 @@
     state: directory
     recurse: yes
   with_items:
-    - "{{ nginx_workdir}}"
-    - "{{ nginx_workdir}}/htpasswd"
-    - "{{ nginx_workdir}}/certs"
-    - "{{ nginx_workdir}}/vhost.d"
-    - "{{ nginx_workdir}}/html"
+    - "{{ nginx_workdir }}"
+    - "{{ nginx_workdir }}/htpasswd"
+    - "{{ nginx_workdir }}/certs"
+    - "{{ nginx_workdir }}/vhost.d"
+    - "{{ nginx_workdir }}/html"
 
 - name: Create an nginx-proxy container
   docker_container:
@@ -24,10 +24,10 @@
       - "80:80"
       - "443:443"
     volumes:
-      - "{{ nginx_workdir}}/htpasswd:/etc/nginx/htpasswd"
-      - "{{ nginx_workdir}}/certs:/etc/nginx/certs"
-      - "{{ nginx_workdir}}/vhost.d:/etc/nginx/vhost.d"
-      - "{{ nginx_workdir}}/html:/usr/share/nginx/html"
+      - "{{ nginx_workdir }}/htpasswd:/etc/nginx/htpasswd"
+      - "{{ nginx_workdir }}/certs:/etc/nginx/certs"
+      - "{{ nginx_workdir }}/vhost.d:/etc/nginx/vhost.d"
+      - "{{ nginx_workdir }}/html:/usr/share/nginx/html"
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
 - name: Create an nginx-proxy-letsencrypt container

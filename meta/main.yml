@@ -1,0 +1,30 @@
+---
+dependencies:
+  - role: eriklotin.docker
+    become: true
+
+galaxy_info:
+  role_name: nginx
+  author: Erik Lotin
+  description: This role installs Docker and run nginx-proxy and nginx-proxy-letsencrypt containers.
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - bionic
+  galaxy_tags:
+    - nginx
+    - letsencrypt
+    - server
+    - devops
+    - web
+    - docker
+    - ssl
+    - tls

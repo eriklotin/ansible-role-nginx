@@ -11,6 +11,7 @@
     - "{{ nginx_workdir }}/certs"
     - "{{ nginx_workdir }}/vhost.d"
     - "{{ nginx_workdir }}/html"
+    - "{{ nginx_workdir }}/conf.d"
 
 - name: Create an nginx-proxy container
   docker_container:
@@ -28,6 +29,7 @@
       - "{{ nginx_workdir }}/certs:/etc/nginx/certs"
       - "{{ nginx_workdir }}/vhost.d:/etc/nginx/vhost.d"
       - "{{ nginx_workdir }}/html:/usr/share/nginx/html"
+      - "{{ nginx_workdir }}/conf.d:/etc/nginx/conf.d"
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
 - name: Create an nginx-proxy-letsencrypt container
